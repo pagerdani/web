@@ -17,5 +17,6 @@
     </head>
     <body class="antialiased bg-dots-darker g-gray-100 dark:bg-dots-lighter dark:bg-gray-900">
         @include('parts.header')
+        @include('parts.menu')
     </body>
 </html>

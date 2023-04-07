@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\IntroductionController;
+use App\Http\Controllers\GaleryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+//Original Route for home page
+/*Route::get('/', function () {
     return view('home');
-});
+});*/
+
+Route::get('/', [HomeController::class, 'home']);
+
+Route::get('/introduction', [IntroductionController::class, 'introduction'])->name('introduction');
+Route::get('/galery', [GaleryController::class, 'galery'])->name('galery');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
