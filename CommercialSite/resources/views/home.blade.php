@@ -19,5 +19,6 @@
         @include('parts.header')
         @include('parts.menu')
         @include('parts.videos')
+        @include('parts.map')
     </body>
 </html>
