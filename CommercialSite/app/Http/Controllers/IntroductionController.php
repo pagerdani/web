@@ -8,6 +8,35 @@ class IntroductionController extends Controller
 {
     public function introduction(): view
     {
-        return view('pages.introduction');
+        $links = [
+            [
+                'name' => 'Introduction',
+                'url' => route('introduction'),
+            ],
+            [
+                'name' => 'Galery',
+                'url' => route('galery'),
+            ],
+            [
+                'name' => 'Contact',
+                'url' => '#',
+            ],
+            [
+                'name' => 'Messages',
+                'url' => '#',
+            ],
+            [
+                'name' => 'Content',
+                'url' => '#',
+            ],
+            [
+                'name' => 'Queue',
+                'url' => '#',
+            ]
+        ];
+
+        return view('pages.introduction')->with([
+            'links' => $links
+        ]);
     }
 }
