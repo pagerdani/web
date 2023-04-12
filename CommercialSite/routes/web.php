@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/introduction', [IntroductionController::class, 'introduction'])->name('introduction');
-Route::get('/galery', [GaleryController::class, 'galery'])->name('galery');
+Route::get('/gallery', [GaleryController::class,'gallery'])->name('gallery.index');
+Route::post('/gallery', [GaleryController::class,'store'])->name('gallery.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -20,8 +20,27 @@
         @include('parts.menu')
         <div class="container">
             <div class="row">
-                <div class="col">
-                    Gallery
+                <div class="col my-5">
+                    <form action="{{ route('gallery.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="d-flex justify-center">
+                            <div class="mx-2" style="border: 1px solid white; border-radius: 50px">
+                                <input class="p-2 dark:text-gray-400" type="file" name="image" id="image">
+                            </div>
+                            <div class="mx-2" style="border: 1px solid white; border-radius: 50px">
+                                <input class="p-2  dark:text-gray-400 dark:hover:text-white" type="submit" value="Upload Image" name="submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex">
+                    @foreach($photos as $photo)
+                        <div style="border-radius: 50px; border: 1px solid white" class="m-3">
+                                <img class="p-3" style="border-radius: 50px; width: 300px; height: 300px" src="storage/{{ $photo->photo_path }}" alt="">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

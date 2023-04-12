@@ -15,7 +15,7 @@ class IntroductionController extends Controller
             ],
             [
                 'name' => 'Galery',
-                'url' => route('galery'),
+                'url' => route('gallery.index'),
             ],
             [
                 'name' => 'Contact',

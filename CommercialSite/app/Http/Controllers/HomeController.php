@@ -15,7 +15,7 @@ class HomeController extends Controller
             ],
             [
                 'name' => 'Galery',
-                'url' => route('galery'),
+                'url' => route('gallery.index'),
             ],
             [
                 'name' => 'Contact',
@@ -34,7 +34,7 @@ class HomeController extends Controller
                 'url' => '#',
             ]
         ];
-        
+
         return view('home')->with([
             'links' => $links
         ]);

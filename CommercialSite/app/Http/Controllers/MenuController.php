@@ -15,7 +15,7 @@ class MenuController extends Controller
             ],
             [
                 'name' => 'Galery',
-                'url' => route('galery'),
+                'url' => route('gallery.index'),
             ]
         ];
 
