@@ -38,7 +38,7 @@ class GaleryController extends Controller
             ]
         ];
 
-        $photos = Photos::all();
+        $photos = Photos::all()->take(4);
 
         return view('pages.galery')->with([
             'links' => $links,
@@ -59,8 +59,6 @@ class GaleryController extends Controller
         ]);
 
         $data->save();
-
-        session()->flash('success', 'Image Upload successfully');
 
         return redirect()->route('gallery.store');
     }

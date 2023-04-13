@@ -25,7 +25,7 @@
                         @csrf
                         <div class="d-flex justify-center">
                             <div class="mx-2" style="border: 1px solid white; border-radius: 50px">
-                                <input class="p-2 dark:text-gray-400" type="file" name="image" id="image">
+                                <input style="border-radius: 50px" class="p-2 dark:text-gray-400" type="file" name="image" id="image">
                             </div>
                             <div class="mx-2" style="border: 1px solid white; border-radius: 50px">
                                 <input class="p-2  dark:text-gray-400 dark:hover:text-white" type="submit" value="Upload Image" name="submit">
