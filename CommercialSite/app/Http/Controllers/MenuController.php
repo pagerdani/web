@@ -16,6 +16,22 @@ class MenuController extends Controller
             [
                 'name' => 'Galery',
                 'url' => route('gallery.index'),
+            ],
+            [
+                'name' => 'Send  messages',
+                'url' =>  route('messages.index'),
+            ],
+            [
+                'name' => 'Messages',
+                'url' => '#',
+            ],
+            [
+                'name' => 'Content',
+                'url' => '#',
+            ],
+            [
+                'name' => 'Queue',
+                'url' => '#',
             ]
         ];
 

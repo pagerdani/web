@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\GaleryController;
@@ -22,10 +23,12 @@ use Illuminate\Support\Facades\Route;
     return view('home');
 });*/
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/introduction', [IntroductionController::class, 'introduction'])->name('introduction');
 Route::get('/gallery', [GaleryController::class,'gallery'])->name('gallery.index');
+Route::get('/messages', [MessagesController::class,'messages'])->name('messages.index');
+Route::post('/messages', [MessagesController::class,'addmsg'])->name('messages.addmsg');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

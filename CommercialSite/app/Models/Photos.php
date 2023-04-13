@@ -23,6 +23,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Photos wherePhotoPath($value)
  * @method static Builder|Photos whereUpdatedAt($value)
  * @mixin Eloquent
+ * @mixin \Eloquent
  */
 class Photos extends Model
 {

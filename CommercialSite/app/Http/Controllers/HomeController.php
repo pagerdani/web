@@ -18,8 +18,8 @@ class HomeController extends Controller
                 'url' => route('gallery.index'),
             ],
             [
-                'name' => 'Contact',
-                'url' => '#',
+                'name' => 'Send  messages',
+                'url' =>  route('messages.index'),
             ],
             [
                 'name' => 'Messages',

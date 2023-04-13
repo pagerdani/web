@@ -1,7 +1,10 @@
 <div class="row">
     <div class="col text-center d-flex">
         <div class="col-md-6 text-start">
-            <h1 class="font-semibold dark:text-gray-400 my-5 mx-5" style="font-size: 30px">Cruise now</h1>
+            <a href="{{ route('home') }}">
+                <h1 class="font-semibold dark:text-gray-400 my-5 mx-5" style="font-size: 30px">Cruise now</h1>
+            </a>
+
         </div>
         <div class="col-md-6 ">
             @if (Route::has('login'))

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Messages;
 use Illuminate\Http\Request;
-use App\Models\Photos;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
-class GaleryController extends Controller
+class MessagesController extends Controller
 {
-    public function gallery(): view
+    public function messages(): view
     {
         $links = [
             [
@@ -38,28 +38,32 @@ class GaleryController extends Controller
             ]
         ];
 
-        $photos = Photos::all()->take(4);
-
-        return view('pages.galery')->with([
+        return view('pages.messages')->with([
             'links' => $links,
-            'photos' => $photos
         ]);
     }
 
-    public function store(Request $request)
+    public function addmsg(Request $request, Messages $messages)
     {
         $this->validate($request, [
-            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'subject' => 'string|max:255|required',
+            'description' => 'string|required',
         ]);
 
-        $photo_path = $request->file('image')->store('image', 'public');
+        if (Auth::user()) {
+            $user = Auth::user()->email;
+        } else {
+            $user = 'Vendég';
+        }
 
-        $data = Photos::create([
-            'photo_path' => $photo_path,
+        $messages->fill([
+           'user'        => $user,
+           'subject'     => $request->subject,
+           'description' => $request->description,
         ]);
 
-        $data->save();
+        $messages->save();
 
-        return redirect()->route('gallery.store');
+        return redirect()->route('messages.addmsg');
     }
 }
