@@ -31,6 +31,21 @@
                                 <li class="list-group-item">
                                     <div class="row my-4">
                                         <div class="col">
+                                            <select name="send_for" id="send_for" style="width: 100%; border: 1px solid black">
+                                                <option value="">Válasszon</option>
+                                                @foreach(\App\Models\User::all() as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('send_for')
+                                            <div class="error">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row my-4">
+                                        <div class="col">
                                             <input type="text" placeholder="Subject" name="subject" id="subject" style="width: 100%; border: 1px solid black" value="{{ old('subject') }}"autofocus>
                                             @error('subject')
                                             <div class="error">{{ $message }}</div>

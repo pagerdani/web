@@ -46,7 +46,8 @@ class MessagesController extends Controller
     public function addmsg(Request $request, Messages $messages)
     {
         $this->validate($request, [
-            'subject' => 'string|max:255|required',
+            'send_for'    => 'required',
+            'subject'     => 'string|max:255|required',
             'description' => 'string|required',
         ]);
 
@@ -58,6 +59,7 @@ class MessagesController extends Controller
 
         $messages->fill([
            'user'        => $user,
+           'send_for'    => $request->send_for,
            'subject'     => $request->subject,
            'description' => $request->description,
         ]);

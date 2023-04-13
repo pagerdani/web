@@ -26,6 +26,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Messages whereSubject($value)
  * @method static Builder|Messages whereUpdatedAt($value)
  * @method static Builder|Messages whereUser($value)
+ * @property int $send_for
+ * @method static Builder|Messages whereSendFor($value)
  * @mixin Eloquent
  */
 class Messages extends Model
@@ -34,6 +36,7 @@ class Messages extends Model
 
     protected $fillable = [
         'user',
+        'send_for',
         'subject',
         'description',
     ];
