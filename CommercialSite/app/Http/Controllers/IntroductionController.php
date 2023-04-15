@@ -14,7 +14,7 @@ class IntroductionController extends Controller
                 'url' => route('introduction'),
             ],
             [
-                'name' => 'Galery',
+                'name' => 'Gallery',
                 'url' => route('gallery.index'),
             ],
             [
@@ -22,16 +22,16 @@ class IntroductionController extends Controller
                 'url' =>  route('messages.index'),
             ],
             [
-                'name' => 'Messages',
-                'url' => '#',
+                'name' => 'View  messages',
+                'url' => route('view.messages.index'),
             ],
             [
                 'name' => 'Content',
-                'url' => '#',
+                'url' => 'a',
             ],
             [
                 'name' => 'Queue',
-                'url' => '#',
+                'url' => 'b',
             ]
         ];
 

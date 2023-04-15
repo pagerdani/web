@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Messages;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class MenuController extends Controller
+class ViewMessageController extends Controller
 {
-    public function menu(): view
+    public function view_messages(): view
     {
         $links = [
             [
@@ -35,8 +38,11 @@ class MenuController extends Controller
             ]
         ];
 
-        return view('parts.menu')->with([
-            'links' => $links
+        $messages = Messages::whereSendFor(Auth::user()->id)->get();
+
+        return view('pages.view_messages')->with([
+            'links' => $links,
+            'messages' => $messages,
         ]);
     }
 }
