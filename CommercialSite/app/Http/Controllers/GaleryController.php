@@ -13,23 +13,23 @@ class GaleryController extends Controller
     {
         $links = [
             [
-                'name' => 'Introduction',
+                'name' => 'Bemutatkozás',
                 'url' => route('introduction'),
             ],
             [
-                'name' => 'Gallery',
+                'name' => 'Galéria',
                 'url' => route('gallery.index'),
             ],
             [
-                'name' => 'Send  messages',
+                'name' => 'Üzenet küldés',
                 'url' =>  route('messages.index'),
             ],
             [
-                'name' => 'View  messages',
+                'name' => 'Saját üzenetek',
                 'url' => route('view.messages.index'),
             ],
             [
-                'name' => 'Messages in row',
+                'name' => 'Összes üzenet sorban',
                 'url' => route('messages.all'),
             ],
 
