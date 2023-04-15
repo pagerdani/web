@@ -29,13 +29,10 @@ class MessagesController extends Controller
                 'url' => route('view.messages.index'),
             ],
             [
-                'name' => 'Content',
-                'url' => 'a',
+                'name' => 'Messages in row',
+                'url' => route('messages.all'),
             ],
-            [
-                'name' => 'Queue',
-                'url' => 'b',
-            ]
+
         ];
 
         return view('pages.messages')->with([

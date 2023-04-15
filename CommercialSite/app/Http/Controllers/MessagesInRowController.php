@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Messages;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Photos;
 
-class GaleryController extends Controller
+class MessagesInRowController extends Controller
 {
-    public function gallery(): view
+    public function messages_in_row(): view
     {
         $links = [
             [
@@ -35,28 +33,11 @@ class GaleryController extends Controller
 
         ];
 
-        $photos = Photos::all()->take(4);
+        $messages = Messages::all();
 
-        return view('pages.galery')->with([
+        return view('pages.messages_in_row')->with([
             'links' => $links,
-            'photos' => $photos
+            'messages' => $messages,
         ]);
-    }
-
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ]);
-
-        $photo_path = $request->file('image')->store('image', 'public');
-
-        $data = Photos::create([
-            'photo_path' => $photo_path,
-        ]);
-
-        $data->save();
-
-        return redirect()->route('gallery.store');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\MessagesInRowController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\GaleryController;
@@ -30,6 +31,7 @@ Route::get('/introduction', [IntroductionController::class, 'introduction'])->na
 Route::get('/gallery', [GaleryController::class,'gallery'])->name('gallery.index');
 Route::get('/send-messages', [MessagesController::class,'messages'])->name('messages.index');
 Route::post('/send-messages', [MessagesController::class,'addmsg'])->name('messages.addmsg');
+Route::get('/all-messages', [MessagesInRowController::class,'messages_in_row'])->name('messages.all');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
